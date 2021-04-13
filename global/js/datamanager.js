@@ -6,7 +6,7 @@
 
 var WMproject = {};
 var WMsettings = {};
-var IsGoogleDrive = false;
+var IsGoogleDrive ;
 const db = new Dexie("wavemaker");
 db.version(1).stores({
   settings: "++id,settings",
@@ -220,7 +220,7 @@ function importDatabase(json) {
 
 function downloadFile(mydata) {
   var d = new Date();
-  var str = d.getHours() + "-" + d.getMinutes() + "-" + d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear();
+  var str = d.getHours() + "-" + d.getMinutes() + "-" + d.getDate() + "-" + (d.getMonth()+1) + "-" + d.getFullYear();
   myfilename = "wavemaker-" + str + ".wmdata";
   //
   var element = document.createElement('a');
